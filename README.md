@@ -26,7 +26,7 @@ if you want to change the T value, change it at line 99, in check_T, input 2 is 
 
 Implementation details:
 
-* block_grid_centers:
+block_grid_centers:
 + takes width, height and k as inputs, k is used to calculate size of blocks
 + calculate a grid of blocks by starting at k, incrementing by "block" until width-k or height-k using range function
 + we start and end there because a pixel at "x" creates a block stretching [x-k, x+k], so a valid block must start at k
@@ -34,16 +34,16 @@ and end at width-k or height-k to allow enough room for a block
 + after that we get a list of xs and ys, from which we can return a list of all the centers corellated to each block in grid
 
 
-* extract_block:
+extract_block:
 + given a x, y value of a pixel in a frame, calculate and return block at that pixel
 
 
-* clamp:
+clamp:
 + if val < low, make val = low
 + if val > high, make val = high
 
 
-* match_blocks:
+match_blocks:
 + y_min, y_max, x_min, x_max are the search area determined by R around the input pixel cx, cy
 + the search area is clamped so that theres still a "k" pixel gap to any border, to allow existence of a block at the edge of the search area
 + e.g. if R=5, k=3 and we're starting from x=6, the first pixel in the search is x=1, we cant make a block at 1 because 1-3=-2
@@ -52,11 +52,11 @@ and end at width-k or height-k to allow enough room for a block
 + return x, y of pixel with lowest ssd and the ssd value
 
 
-* check_T:
+check_T:
 + check squareroot ssd against T values
 
 
-* putting it all together:
+putting it all together:
 + run block_grid_centers once to generate block grid and get all the centers
 + firstly, read first frame and save it to variable "prev"
 + from 2nd frame onward, while theres still frames:
