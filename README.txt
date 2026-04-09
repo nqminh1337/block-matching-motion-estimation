@@ -1,3 +1,17 @@
+## Overview
+
+The goal of this project is to perform **motion estimation** on a video using **block matching**.
+
+For each frame pair:
+
+1. Divide the current frame into macroblocks of size **(2k + 1, 2k + 1)**.
+2. For each source block in frame `F_i`, search for the best matching block in the next frame `F_{i+1}`.
+3. Use **minimum sum-of-squared-distances (SSD)** as the matching criterion.
+4. Compute the displacement vector from the source block centroid to the matched target block centroid.
+5. Filter out noisy vectors using a threshold range **(Tmin, Tmax)**.
+6. Draw arrows on the frame to visualize the selected motion vectors.
+7. Repeat for all frames.
+
 before running file:
 pip install numpy
 pip install opencv-python
