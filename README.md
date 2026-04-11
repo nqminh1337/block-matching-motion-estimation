@@ -1,7 +1,9 @@
 ## Overview
 
 The goal of this project is to perform **motion estimation** on a video using **block matching**.
+We're adding motion vectors onto the original input video "monkey.avi", outputting "monkey.mp4"
 
+How it works:
 For each frame pair:
 
 1. Divide the current frame into macroblocks of size **(2k + 1, 2k + 1)**.
